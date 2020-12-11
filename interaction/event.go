@@ -38,3 +38,7 @@ func (e Event) Reply(content string) *EventCallback {
 	// TODO: error handling
 	return nil
 }
+
+func (e Event) Error(content string) *EventCallback {
+	return e.Reply(fmt.Sprintf("**❌  |  %v**", content))
+}
