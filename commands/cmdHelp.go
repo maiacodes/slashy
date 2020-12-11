@@ -9,6 +9,10 @@ func cmdHelp(e *interaction.Event) *interaction.EventCallback {
 		Description: "Here are Slashy's commands!",
 		Fields: []interaction.EmbedField{
 			interaction.EmbedField{
+				Name:  "Check time in location",
+				Value: "`/time <location>`",
+			},
+			interaction.EmbedField{
 				Name:  "Convert between currencies",
 				Value: "`/currency <from> <amount <to>`",
 			},
