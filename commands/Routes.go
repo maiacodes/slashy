@@ -19,6 +19,15 @@ type commandOption struct {
 	Required    bool   `json:"required"`
 }
 
+const (
+	OPTION_TYPE_STRING  = 3
+	OPTION_TYPE_INT     = 4
+	OPTION_TYPE_BOOL    = 5
+	OPTION_TYPE_USER    = 6
+	OPTION_TYPE_CHANNEL = 7
+	OPTION_TYPE_ROLE    = 8
+)
+
 var (
 	Commands = map[string]commandRoute{
 		"ping": {
@@ -32,7 +41,7 @@ var (
 			CommandFunction: cmdSay,
 			Options: []commandOption{
 				{
-					Type:        3,
+					Type:        OPTION_TYPE_STRING,
 					Name:        "message",
 					Description: "What you'd like the bot to say.",
 					Required:    true,
@@ -43,6 +52,44 @@ var (
 			Name:            "info",
 			Description:     "About the bot.",
 			CommandFunction: cmdInfo,
+		},
+		"maths": {
+			Name:            "maths",
+			Description:     "Evaluate a maths expression.",
+			CommandFunction: cmdMaths,
+			Options: []commandOption{
+				{
+					Type:        OPTION_TYPE_STRING,
+					Name:        "expression",
+					Description: "What you'd like to evaluate.",
+					Required:    true,
+				},
+			},
+		},
+		"currency": {
+			Name:            "currency",
+			Description:     "Check exchange rates.",
+			CommandFunction: cmdCurrency,
+			Options: []commandOption{
+				{
+					Type:        OPTION_TYPE_STRING,
+					Name:        "from",
+					Description: "What currency you're converting from.",
+					Required:    true,
+				},
+				{
+					Type:        OPTION_TYPE_STRING,
+					Name:        "amount",
+					Description: "The amount of the base currency you're converting.",
+					Required:    true,
+				},
+				{
+					Type:        OPTION_TYPE_STRING,
+					Name:        "to",
+					Description: "What currency you're converting into.",
+					Required:    true,
+				},
+			},
 		},
 	}
 )
