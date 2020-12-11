@@ -53,6 +53,11 @@ var (
 			Description:     "About the bot.",
 			CommandFunction: cmdInfo,
 		},
+		"help": {
+			Name:            "help",
+			Description:     "See Slashy's commands.",
+			CommandFunction: cmdHelp,
+		},
 		"maths": {
 			Name:            "maths",
 			Description:     "Evaluate a maths expression.",
