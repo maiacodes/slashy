@@ -71,6 +71,19 @@ var (
 				},
 			},
 		},
+		"time": {
+			Name:            "time",
+			Description:     "Check the time in a location.",
+			CommandFunction: cmdTime,
+			Options: []commandOption{
+				{
+					Type:        OPTION_TYPE_STRING,
+					Name:        "location",
+					Description: "Which time zone/location?",
+					Required:    true,
+				},
+			},
+		},
 		"currency": {
 			Name:            "currency",
 			Description:     "Check exchange rates.",
