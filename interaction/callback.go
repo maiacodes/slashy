@@ -13,5 +13,6 @@ type EventCallback struct {
 }
 
 type EventCallbackData struct {
-	Content string `json:"content"`
+	Content string  `json:"content"`
+	Embeds  []Embed `json:"embeds"`
 }

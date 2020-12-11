@@ -39,6 +39,27 @@ func (e Event) Reply(content string) *EventCallback {
 	return nil
 }
 
+func (e Event) ReplyEmbed(embed Embed) *EventCallback {
+	callback := EventCallback{
+		Type: CallbackWithSource,
+		Data: EventCallbackData{Embeds: []Embed{embed}},
+	}
+
+	// If the request hasn't been responded yet, send the callback
+	if !e.Responded {
+		return &callback
+	}
+
+	// If the request has been responded already, send the callback manually
+	body, _ := json.Marshal(callback)
+	req, _ := http.NewRequest("POST", fmt.Sprintf("https://discord.com/api/v8/interactions/%v/%v/callback", e.ID, e.Token), bytes.NewReader(body))
+	req.Header.Set("Content-Type", "application/json")
+	client := &http.Client{}
+	client.Do(req)
+	// TODO: error handling
+	return nil
+}
+
 func (e Event) Error(content string) *EventCallback {
 	return e.Reply(fmt.Sprintf("**❌  |  %v**", content))
 }
