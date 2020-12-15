@@ -1,7 +1,7 @@
 package commands
 
 import (
-	"../interaction"
+	"github.com/maiacodes/slashy/interaction"
 )
 
 func cmdHelp(e *interaction.Event) *interaction.EventCallback {

@@ -1,8 +1,8 @@
 package commands
 
 import (
-	"../interaction"
 	"fmt"
+	"github.com/maiacodes/slashy/interaction"
 	"math"
 	"strconv"
 	"strings"

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/andersfylling/disgord/json"
+	"encoding/json"
 	"github.com/labstack/echo"
 	"github.com/sirupsen/logrus"
 	"io/ioutil"
@@ -9,8 +9,8 @@ import (
 	"strconv"
 	"time"
 
-	"./commands"
-	"./interaction"
+	"github.com/maiacodes/slashy/commands"
+	"github.com/maiacodes/slashy/interaction"
 )
 
 func main() {

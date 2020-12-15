@@ -1,9 +1,9 @@
 package commands
 
 import (
-	"../interaction"
 	"fmt"
 	"github.com/Knetic/govaluate"
+	"github.com/maiacodes/slashy/interaction"
 )
 
 func cmdMaths(e *interaction.Event) *interaction.EventCallback {
