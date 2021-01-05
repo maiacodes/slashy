@@ -21,7 +21,7 @@ func main() {
 	e.POST("/hook", hook)
 
 	e.HideBanner = true
-	e.Start(":" + os.Getenv("port"))
+	e.Start(":" + os.Getenv("PORT"))
 }
 
 func hook(c echo.Context) error {
