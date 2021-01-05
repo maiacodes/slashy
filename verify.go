@@ -8,12 +8,12 @@ import (
 func verify(signature, hash, publicKey string) bool {
 	decodedSig, err := hex.DecodeString(signature)
 	if err != nil {
-		panic(err)
+		return false
 	}
 
 	decodedPubKey, err := hex.DecodeString(publicKey)
 	if err != nil {
-		panic(err)
+		return false
 	}
 
 	return ed25519.Verify(decodedPubKey, []byte(hash), decodedSig)
