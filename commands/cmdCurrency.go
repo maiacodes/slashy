@@ -23,6 +23,10 @@ func cmdCurrency(e *interaction.Event) *interaction.EventCallback {
 	// Validate FROM currency
 	from := strings.ToUpper(e.Data.Options[0].Value)
 	eurFromRate, ok := response.Rates[from]
+	if from == "EUR" {
+		ok = true
+		eurFromRate = 1
+	}
 	if !ok {
 		return e.Error("From currency not found!")
 	}
