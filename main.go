@@ -15,7 +15,7 @@ import (
 
 func main() {
 	logrus.Info("Starting...")
-	commands.InitialiseCommands()
+	go commands.InitialiseCommands()
 	e := echo.New()
 
 	e.POST("/hook", hook)
