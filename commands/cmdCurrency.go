@@ -33,7 +33,7 @@ func cmdCurrency(e *interaction.Event) *interaction.EventCallback {
 
 	// Validate AMOUNT
 	amountString := e.Data.Options[1].Value
-	amount, err := strconv.Atoi(amountString)
+	amount, err := strconv.ParseFloat(amountString, 64)
 	if err != nil {
 		return e.Error("Parameter error")
 	}
