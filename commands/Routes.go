@@ -109,5 +109,18 @@ var (
 				},
 			},
 		},
+		"dictionary": {
+			Name:            "dictionary",
+			Description:     "Search for words.",
+			CommandFunction: cmdDictionary,
+			Options: []commandOption{
+				{
+					Type:        OPTION_TYPE_STRING,
+					Name:        "word",
+					Description: "The word to search.",
+					Required:    true,
+				},
+			},
+		},
 	}
 )
