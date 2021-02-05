@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"github.com/labstack/echo"
+	"github.com/maiacodes/slashy/analytics"
 	"github.com/sirupsen/logrus"
 	"io/ioutil"
 	"os"
@@ -16,6 +17,7 @@ import (
 func main() {
 	logrus.Info("Starting...")
 	go commands.InitialiseCommands()
+	go analytics.Connect()
 	e := echo.New()
 
 	e.POST("/hook", hook)
