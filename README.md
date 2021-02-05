@@ -19,3 +19,9 @@ To use Slashy you'll need to use Go to build into a binary (I'm just going to ex
 
 ## How Slashy runs in Production
 Slashy currently runs on Google Cloud Run, this is useful because it allows Slashy to instantly scale to demand without any infrastructure management, as Cloud Run is serverless. This repo has Google Cloud Build setup to automatically deploy updates to production.
+
+## Anonymous Statistics
+Slashy now collects statistics which includes:
+- The Guild ID in which commands are run
+- Which commands are being run
+- When commands are being run
