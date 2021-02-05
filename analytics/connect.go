@@ -4,6 +4,7 @@ import (
 	"gorm.io/driver/bigquery"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
+	"os"
 )
 
 var (
@@ -19,9 +20,11 @@ func Connect() {
 	}
 
 	// Make sure we have a complex_records table
-	err = db.AutoMigrate(&event{})
-	if err != nil {
-		panic(err)
+	if os.Getenv("development") == "true" {
+		err = db.AutoMigrate(&event{})
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	G = db
