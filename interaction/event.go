@@ -15,6 +15,7 @@ type Event struct {
 	GuildID   string  `json:"guild_id"`
 	Data      Command `json:"data"`
 	ID        string  `json:"id"`
+	Member    Member  `json:"member"`
 	Responded bool
 }
 
